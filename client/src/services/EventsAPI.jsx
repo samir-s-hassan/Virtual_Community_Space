@@ -26,7 +26,7 @@ const getEventsByLocationId = async (location_id) => {
 };
 
 // Function to get an event by event ID
-const getEventById = async (event_id) => {
+const getEventsById = async (event_id) => {
   try {
     const response = await axios.get(`${API_BASE_URL}/${event_id}`);
     return response.data;
@@ -36,5 +36,10 @@ const getEventById = async (event_id) => {
   }
 };
 
+const EventsAPI = {
+  getAllEvents,
+  getEventsById,
+};
+
 // Export all functions
-export { getAllEvents, getEventsByLocationId, getEventById };
+export default EventsAPI;

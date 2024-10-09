@@ -31,14 +31,6 @@ const locationsData = [
     state: "Washington",
     image: "https://s1.ticketm.net/dam/a/6ba/cca88b1c-9704-49ea-83ff-23d0e4c246ba_1665171_RETINA_PORTRAIT_3_2.jpg",
   },
-  {
-    location_id: 5,
-    name: "Mercedes-Benz Stadium",
-    address: "1 AMB Dr NW",
-    city: "Atlanta",
-    state: "Georgia",
-    image: "https://cdn.prod.website-files.com/5ddedb3aabcf2c01a3f45461/64b4bfdf7de034a04efd75f1_contact_hero.jpg",
-  },
 ];
 
 export default locationsData;

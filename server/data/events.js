@@ -114,35 +114,6 @@ const eventsData = [
     image:
       "https://www.movin925.com/wp-content/uploads/2023/07/Taylor-Swift-at-Lumen-Field-194.jpg",
   },
-
-  // Events for Mercedes-Benz Stadium
-  {
-    event_id: 13,
-    title: "Atlanta Falcons vs. New Orleans Saints",
-    description: "NFL action between two fierce rivals.",
-    date: "2024-11-10",
-    location_id: 5,
-    image:
-      "https://res.cloudinary.com/atlanta/images/w_1024,h_768,c_scale/f_auto,q_auto/v1596482070/newAtlanta.com/AtlantaMercedesBenzStadiumInterior-1-scaled/AtlantaMercedesBenzStadiumInterior-1-scaled.jpg?_i=AA",
-  },
-  {
-    event_id: 14,
-    title: "Peach Bowl",
-    description: "A top college football bowl game.",
-    date: "2024-12-31",
-    location_id: 5,
-    image:
-      "https://footballstadiumdigest.com/wp-content/uploads/2017/09/Mercedes-Benz-Stadium-football.jpg",
-  },
-  {
-    event_id: 15,
-    title: "Concert: Beyoncé",
-    description: "Beyoncé performs live in Atlanta.",
-    date: "2024-07-14",
-    location_id: 5,
-    image:
-      "https://c8.alamy.com/comp/W04J8G/beyonce-performs-during-super-bowl-xlvii-halftime-at-the-mercedes-benz-superdome-in-new-orleans-on-february-3-2013-in-new-orleans-upidavid-tulis-W04J8G.jpg",
-  },
 ];
 
 export default eventsData;

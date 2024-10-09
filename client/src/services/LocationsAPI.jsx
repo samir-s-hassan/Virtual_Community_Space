@@ -28,4 +28,9 @@ const getLocationById = async (location_id) => {
 };
 
 // Export all functions
-export { getAllLocations, getLocationById };
+const LocationsAPI = {
+  getAllLocations,
+  getLocationById,
+};
+
+export default LocationsAPI;
