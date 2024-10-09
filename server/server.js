@@ -5,7 +5,7 @@ import dotenv from "dotenv";
 
 // import the router from your routes file
 import eventsRouter from "./routes/events";
-import locationRouter from "./routes/locations";
+import locationsRouter from "./routes/locations";
 
 dotenv.config();
 
@@ -23,7 +23,7 @@ if (process.env.NODE_ENV === "development") {
 }
 
 // specify the api path for the server to use
-app.use("/", locationRouter);
+app.use("/", locationsRouter);
 app.use("/events/", eventsRouter);
 
 if (process.env.NODE_ENV === "production") {
