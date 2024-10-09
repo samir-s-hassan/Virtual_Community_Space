@@ -29,7 +29,7 @@ const getLocationById = async (req, res) => {
 };
 
 // Function to get all events at a specific location
-const getEventsAtLocation = async (req, res) => {
+const getLocationEvents = async (req, res) => {
   try {
     const selectQuery = `
       SELECT e.event_id, e.title, e.description, e.date, e.image
@@ -49,5 +49,5 @@ const getEventsAtLocation = async (req, res) => {
 export default {
   getLocations,
   getLocationById,
-  getEventsAtLocation,
+  getLocationEvents,
 };
