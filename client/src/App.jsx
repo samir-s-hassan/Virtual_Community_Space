@@ -13,19 +13,19 @@ const App = () => {
     },
     {
       path: "/spotifycampnou",
-      element: <LocationEvents index={1} />,
+      element: <LocationEvents locationId={1} />,
     },
     {
       path: "/stadiosansiro",
-      element: <LocationEvents index={2} />,
+      element: <LocationEvents locationId={2} />,
     },
     {
       path: "/metlifestadium",
-      element: <LocationEvents index={3} />,
+      element: <LocationEvents locationId={3} />,
     },
     {
       path: "/lumenfield",
-      element: <LocationEvents index={4} />,
+      element: <LocationEvents locationId={4} />,
     },
     {
       path: "/events",

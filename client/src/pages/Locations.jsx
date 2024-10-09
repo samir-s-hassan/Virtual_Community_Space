@@ -13,43 +13,50 @@ const Locations = () => {
   });
 
   useEffect(() => {
-    (async () => {
+    const fetchLocations = async () => {
       try {
         const locationsData = await LocationsAPI.getAllLocations();
         setLocations(locationsData);
 
-        setVenueNames({
-          venue1: locationsData[0].name,
-          venue2: locationsData[1].name,
-          venue3: locationsData[2].name,
-          venue4: locationsData[3].name,
-        });
-        setListeners();
+        if (locationsData.length >= 4) {
+          setVenueNames({
+            venue1: locationsData[0].name,
+            venue2: locationsData[1].name,
+            venue3: locationsData[2].name,
+            venue4: locationsData[3].name,
+          });
+        }
       } catch (error) {
-        throw error;
+        console.error("Error fetching locations:", error);
       }
-    })();
-  }, []);
+    };
 
-  const setListeners = () => {
+    fetchLocations();
+
     const polygons = document.querySelectorAll("polygon");
+    const handleMouseOver = (event) => {
+      const buttonElement = document.getElementById(`${event.target.id}button`);
+      if (buttonElement) buttonElement.style.opacity = 1;
+    };
+
+    const handleMouseLeave = (event) => {
+      const buttonElement = document.getElementById(`${event.target.id}button`);
+      if (buttonElement) buttonElement.style.opacity = 0;
+    };
 
     polygons.forEach((element) => {
-      element.addEventListener("mouseover", (event) => {
-        const buttonElement = document.getElementById(
-          `${event.target.id}button`
-        );
-        buttonElement.style.opacity = 1;
-      });
-
-      element.addEventListener("mouseleave", (event) => {
-        const buttonElement = document.getElementById(
-          `${event.target.id}button`
-        );
-        buttonElement.style.opacity = 0;
-      });
+      element.addEventListener("mouseover", handleMouseOver);
+      element.addEventListener("mouseleave", handleMouseLeave);
     });
-  };
+
+    // Cleanup event listeners on unmount
+    return () => {
+      polygons.forEach((element) => {
+        element.removeEventListener("mouseover", handleMouseOver);
+        element.removeEventListener("mouseleave", handleMouseLeave);
+      });
+    };
+  }, []);
 
   return (
     <div className="available-locations">
@@ -98,8 +105,6 @@ const Locations = () => {
         <a href="/stadiosansiro">
           <polygon
             id="venue2"
-            name="venue2"
-            value={2}
             points="358.58,353.74 376.65,322.77 389.55,314.52 384.39,280.45 407.61,272.19 422.06,220.58 
                 438.58,126.65 449.42,38.39 457.68,16.71 468,35.81 474.19,103.42 491.74,203.03 508.26,261.87 517.03,281.48 517.03,214.9 
                 529.42,194.26 540.77,197.35 540.77,169.48 552.13,167.94 556.77,149.87 566.06,156.06 566.06,193.74 577.42,211.81 577.42,238.65 
@@ -110,8 +115,6 @@ const Locations = () => {
         <a href="/metlifestadium">
           <polygon
             id="venue3"
-            name="venue3"
-            value={3}
             points="998.06,83.81 952.65,31.16 914.45,16.71 877.29,43.55 833.94,102.39 811.74,161.23 
                 796.77,241.23 802.97,303.16 833.94,353.23 871.61,385.23 954.71,385.23 1000.32,387.81 "
           />
@@ -120,8 +123,6 @@ const Locations = () => {
         <a href="/lumenfield">
           <polygon
             id="venue4"
-            name="venue4"
-            value={4}
             points="625,291 615,305 608,318 625,338 637,354 622.5,358 673,363.5 751,363.5 793,363.5 
                 769,352 772,347 793,340 806,321 796.8,291 784,269 757,261 730,272 707,281 672,283 "
           />
