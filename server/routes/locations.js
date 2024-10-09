@@ -1,6 +1,6 @@
 import express from "express";
 // import controllers for events and locations
-import locationsController from "../controllers/locations";
+import locationsController from "../controllers/locations.js";
 
 const locationsRouter = express.Router();
 

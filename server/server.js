@@ -4,8 +4,8 @@ import favicon from "serve-favicon";
 import dotenv from "dotenv";
 
 // import the router from your routes file
-import eventsRouter from "./routes/events";
-import locationsRouter from "./routes/locations";
+import eventsRouter from "./routes/events.js";
+import locationsRouter from "./routes/locations.js";
 
 dotenv.config();
 

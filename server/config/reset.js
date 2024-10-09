@@ -1,4 +1,4 @@
-import { pool } from "./database.js"; // Ensure this is your configured PostgreSQL connection
+import { pool } from "./database.js";
 import "./dotenv.js";
 import eventsData from "../data/events.js";
 import locationsData from "../data/locations.js";
@@ -6,8 +6,8 @@ import locationsData from "../data/locations.js";
 // Function to create the locations table
 const createLocationsTable = async () => {
   const createTableQuery = `
-      DROP TABLE IF EXISTS locations;
-  
+      DROP TABLE IF EXISTS locations CASCADE;
+
       CREATE TABLE IF NOT EXISTS locations (
         location_id SERIAL PRIMARY KEY,
         name VARCHAR(255) NOT NULL,
@@ -28,8 +28,7 @@ const createLocationsTable = async () => {
 
 // Function to seed the locations table with data
 const seedLocationsTable = async () => {
-  await createLocationsTable();
-
+  await createLocationsTable(); // Drop and recreate locations table with CASCADE
   try {
     for (const location of locationsData) {
       const insertQuery = `
@@ -56,7 +55,7 @@ const seedLocationsTable = async () => {
 const createEventsTable = async () => {
   const createTableQuery = `
       DROP TABLE IF EXISTS events;
-  
+
       CREATE TABLE IF NOT EXISTS events (
         event_id SERIAL PRIMARY KEY,
         title VARCHAR(255) NOT NULL,
@@ -77,7 +76,7 @@ const createEventsTable = async () => {
 
 // Function to seed the events table with data
 const seedEventsTable = async () => {
-  await createEventsTable();
+  await createEventsTable(); // Recreate the events table
 
   try {
     for (const event of eventsData) {
@@ -101,9 +100,10 @@ const seedEventsTable = async () => {
   }
 };
 
+// Seed all tables in the correct order
 const seedTables = async () => {
-  await seedLocationsTable();
-  await seedEventsTable();
+  await seedLocationsTable(); // Seed locations
+  await seedEventsTable(); // Seed events
 };
 
 seedTables();

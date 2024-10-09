@@ -4,7 +4,10 @@ import { pool } from "../config/database.js";
 const getEvents = async (req, res) => {
   try {
     const results = await pool.query(
-      "SELECT * FROM events ORDER BY event_id ASC"
+      ` SELECT e.event_id, e.title, e.description, e.date, l.name AS location_name, e.image
+        FROM events e
+        INNER JOIN locations l ON e.location_id = l.location_id
+        ORDER BY e.event_id ASC`
     );
     res.status(200).json(results.rows);
   } catch (error) {
@@ -16,9 +19,11 @@ const getEvents = async (req, res) => {
 const getEventById = async (req, res) => {
   try {
     const selectQuery = `
-      SELECT title, description, date, image
-      FROM events
-      WHERE event_id = $1
+        SELECT e.event_id, e.title, e.description, e.date, l.name AS location_name, e.image
+        FROM events e
+        INNER JOIN locations l ON e.location_id = l.location_id
+        WHERE e.event_id = $1
+        ORDER BY e.date ASC
     `;
     const event_id = req.params.event_id; // Ensure this matches the route parameter
     const results = await pool.query(selectQuery, [event_id]);
@@ -28,15 +33,16 @@ const getEventById = async (req, res) => {
   }
 };
 
-// Function to get all events by location ID
+// Function to get all events by location ID, including location name
 const getEventsByLocationId = async (req, res) => {
   try {
     const selectQuery = `
-        SELECT event_id, title, description, date, image
-        FROM events
-        WHERE location_id = $1
-        ORDER BY date ASC
-      `;
+        SELECT e.event_id, e.title, e.description, e.date, l.name AS location_name, e.image 
+        FROM events e
+        INNER JOIN locations l ON e.location_id = l.location_id
+        WHERE e.location_id = $1
+        ORDER BY e.date ASC
+        `;
     const location_id = req.params.location_id;
     const results = await pool.query(selectQuery, [location_id]);
     res.status(200).json(results.rows);

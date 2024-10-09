@@ -16,7 +16,7 @@ const getLocations = async (req, res) => {
 const getLocationById = async (req, res) => {
   try {
     const selectQuery = `
-      SELECT name, address, city, state, image
+      SELECT location_id, name, address, city, state, image
       FROM locations
       WHERE location_id = $1
     `;
