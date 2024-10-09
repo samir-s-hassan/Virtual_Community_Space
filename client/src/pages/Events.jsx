@@ -3,7 +3,6 @@
 import React, { useState, useEffect } from "react";
 import Event from "../components/Event";
 import EventsAPI from "../services/EventsAPI"; // Import your EventsAPI to fetch events
-import "../css/Event.css";
 
 const Events = () => {
   const [events, setEvents] = useState([]); // State to hold all events
