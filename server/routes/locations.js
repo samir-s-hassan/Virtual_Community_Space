@@ -4,9 +4,8 @@ import locationsController from "../controllers/locations";
 
 const locationRouter = express.Router();
 
-// define routes to get locations, location by its ID, and all events at a location
-locationRouter.get("/", locationsController.getLocations);
-locationRouter.get("/:location_id", locationsController.getLocationById);
-locationRouter.get("/:location_id/events", locationsController.getLocationEvents);
+// define routes to get locations and location by its ID
+locationRouter.get("/", locationsController.getLocations); //since locations is / then this is homepage
+locationRouter.get("/locations/:location_id", locationsController.getLocationById); //this is location_id
 
 export default locationRouter;

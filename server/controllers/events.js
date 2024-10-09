@@ -28,7 +28,25 @@ const getEventById = async (req, res) => {
   }
 };
 
+// Function to get all events by location ID
+const getEventsByLocationId = async (req, res) => {
+  try {
+    const selectQuery = `
+        SELECT event_id, title, description, date, image
+        FROM events
+        WHERE location_id = $1
+        ORDER BY date ASC
+      `;
+    const location_id = req.params.location_id;
+    const results = await pool.query(selectQuery, [location_id]);
+    res.status(200).json(results.rows);
+  } catch (error) {
+    res.status(409).json({ error: error.message });
+  }
+};
+
 export default {
   getEvents,
   getEventById,
+  getEventsByLocationId,
 };
