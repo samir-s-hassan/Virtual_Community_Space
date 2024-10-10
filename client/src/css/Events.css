@@ -1,0 +1,102 @@
+/* src/css/Events.css */
+
+.events {
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow-x: hidden; /* Prevent horizontal scrolling on the outer container */
+  }
+  
+  header {
+    margin-bottom: 20px;
+  }
+  
+  header h1 {
+    font-size: 2em;
+    margin-bottom: 10px;
+  }
+  
+  header p {
+    font-size: 1.1em;
+    color: #555;
+  }
+  
+  /* Horizontal scroll container for events */
+  .events-list {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto; /* Enable horizontal scrolling */
+    overflow-y: hidden; /* Disable vertical scrolling */
+    gap: 20px;
+    padding: 20px;
+    scroll-snap-type: x mandatory; /* Optional: enables snap effect */
+  }
+  
+  .events-list::-webkit-scrollbar {
+    height: 8px;
+  }
+  
+  .events-list::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 4px;
+  }
+  
+  .events-list::-webkit-scrollbar-thumb:hover {
+    background-color: #aaa;
+  }
+  
+  /* Styling for individual event cards with fixed size */
+  .event-information {
+    flex: 0 0 350px; /* Fixed width for each card */
+    height: 350px;
+    border: 2px solid white;
+    border-radius: 5px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    scroll-snap-align: start; /* Optional: snap alignment */
+  }
+  
+  .event-information img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  /* Overlay styling */
+  .event-information-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 100%;
+    right: 0;
+    background-color: var(--primary);
+    overflow: hidden;
+    width: 0;
+    height: 100%;
+    transition: 0.5s ease;
+  }
+  
+  .event-information:hover .event-information-overlay {
+    width: 100%;
+    left: 0;
+  }
+  
+  .text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+  }
+  
+  .text i {
+    margin-right: 10px;
+  }
+  
+  .text p {
+    color: white;
+    margin-top: 10px;
+  }
+  

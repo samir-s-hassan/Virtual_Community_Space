@@ -2,9 +2,9 @@
 
 Submitted by: Samir Hassan
 
-About this web app: **App description here**
+About this web app: Virtual Community Space is a web app built to showcase events happening across different locations. Using React, the app connects to a PostgreSQL database hosted on Railway, making it easy to fetch and display event details in real time. Users can explore various event locations, check out what’s happening at each spot, and enjoy unique pages dedicated to every location.
 
-Time spent: **X** hours
+Time spent: 3 hours
 
 ## Required Features
 
@@ -12,22 +12,18 @@ The following **required** functionality is completed:
 
 <!-- Make sure to check off completed functionality below -->
 
-- [ ] **The web app uses React to display data from the API**
-- [ ] **The web app is connected to a PostgreSQL database, with an appropriately structured Events table**
-  - [ ] **NOTE: Your GIF or a screenshot added to this README must include a view of your Railway database that shows the contents of the table used by your app**
-- [ ] **The web app displays the title of the app**
-- [ ] **A visual interface allows the user to select a Location they would like to view**
-- [ ] **Clicking on a Location shows a list of all items from the Events table that corresponds to that Location**
-- [ ] **Each Location detail page should have its own unique URL**
+- [X] **The web app uses React to display data from the API**
+- [X] **The web app is connected to a PostgreSQL database, with an appropriately structured Events table**
+  - [X] **NOTE: Your GIF or a screenshot added to this README must include a view of your Railway database that shows the contents of the table used by your app**
+- [X] **The web app displays the title of the app**
+- [X] **A visual interface allows the user to select a Location they would like to view**
+- [X] **Clicking on a Location shows a list of all items from the Events table that corresponds to that Location**
+- [X] **Each Location detail page should have its own unique URL**
 
 The following **optional** features are implemented:
 
 - [ ] An additional page shows all possible `Events` that the user can sort and filter by `Location`
 - [ ] `Events` display a countdown showing the time remaining before that event and appears with different formatting when the event has passed
-
-The following **additional** features are implemented:
-
-- [ ] List anything else that you added to improve the site's functionality!
 
 ## Video Walkthrough
 
@@ -35,12 +31,12 @@ Here's a walkthrough of implemented required features:
 
 <img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
-<!-- Replace this with whatever GIF tool you used! -->
 GIF created with Kap
 
 ## Notes
 
-Describe any challenges encountered while building the app or any additional context you'd like to add.
+- For the Events page, I can't find a way to properly layout all the Events in a grid. The CSS was very difficult for this one.
+- Next time, since the front-end code was provided to us, I'll match the frontend data template to my backend data.
 
 ## License
 
