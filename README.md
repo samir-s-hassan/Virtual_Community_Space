@@ -41,7 +41,7 @@ The following **optional** features are implemented:
 
 Here's a walkthrough of implemented required features:
 
-https://imgur.com/a/oaCbDjZ
+https://imgur.com/gallery/web103-project-3-oaCbDjZ
 
 GIF created with Kap
 
