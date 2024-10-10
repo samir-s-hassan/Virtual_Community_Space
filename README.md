@@ -25,18 +25,30 @@ The following **optional** features are implemented:
 - [ ] An additional page shows all possible `Events` that the user can sort and filter by `Location`
 - [ ] `Events` display a countdown showing the time remaining before that event and appears with different formatting when the event has passed
 
+## How to run
+1. Open two tabs on your terminal
+2. Both tabs should have you starting at the root of this project repository 
+3. Run "cd client" on one terminal tab and "cd server" on the other terminal tab
+4. Run "npm install" to make sure you have all the necessary dependencies/packages
+5. Now that you have the client and server directories open on different tabs, run "npm install" within each tab to make sure you have all the necessary dependencies for the client and the server
+6. Run "npm start" on the server-side and this will get our server started on a port!
+7. Run "npm run build" and then "npm run dev" on the client-side and this will get our client started on a port
+8. This project has been configured such that the client is already requesting for data from to the port the server started on
+9. Click on the link present in your client terminal to open your front-end
+10. Enjoy your app!
+
 ## Video Walkthrough
 
 Here's a walkthrough of implemented required features:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+https://imgur.com/a/oaCbDjZ
 
 GIF created with Kap
 
 ## Notes
 
-- For the Events page, I can't find a way to properly layout all the Events in a grid. The CSS was very difficult for this one.
-- Next time, since the front-end code was provided to us, I'll match the frontend data template to my backend data.
+- For the Events page, I couldn't find a way to properly layout all the Events in a grid. The CSS was very difficult for this one.
+- I initially started this project by simply making an events and locations table and then adding my own eneity attributes and data to the tables. I later realized that the frontend expected data from these tables BUT also expected it in a certain quantity/quality. Next time, I'll analyze the frontend more and create data and have entity attributes that best fit the frontend. Since the frontend code was given to us, this is the best way to approach it and minimize the work I do later.
 
 ## License
 
